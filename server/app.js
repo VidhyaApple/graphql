@@ -2,7 +2,11 @@ const express = require('express');
 const expressGraphql = require('express-graphql');
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const app = express();
+
+//Cross origin set up
+app.use(cors());
 
 app.use('/graphql',expressGraphql({
   schema, //schema: schema (if same name in key value then use one name)
